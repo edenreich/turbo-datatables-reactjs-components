@@ -5,8 +5,13 @@ class DatatableHeader extends Component {
   render() {
     return (
       <div className="datatable-header">
-        DatatableHeader
-        { this.props.children }
+        <table style={{width: '100%'}}>
+          <tbody>
+            <tr>
+              {this.props.children}
+            </tr>
+          </tbody>
+        </table>
       </div>
     );
   }

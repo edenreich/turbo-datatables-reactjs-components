@@ -4,9 +4,12 @@ class DatatableBody extends Component {
 
   render() {
     return (
-      <div className="datatable-body">
-        DatatableBody
-      </div>
+      <tbody className="datatable-body">
+        {this.props.children}
+        <tr>
+          <td>DatatableBody</td>
+        </tr>
+      </tbody>
     );
   }
 }

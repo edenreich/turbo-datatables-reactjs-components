@@ -3,10 +3,19 @@ import React, { Component } from "react";
 class DatatableFooter extends Component {
 
   render() {
+    let { columns } = this.props;
+    columns = columns.map((column, index) => {
+      return (
+        <td key={index}>{column.name}</td>
+      )
+    });
+
     return (
-      <div className="datatable-footer">
-        DatatableFooter
-      </div>
+      <tfoot className="datatable-footer">
+        <tr>
+          {columns}
+        </tr>
+      </tfoot>
     );
   }
 }
