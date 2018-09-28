@@ -7,7 +7,15 @@ class Datatable extends Component {
         super(props);
 
         this.props.gettingRecords();
-        Axios.get(this.props.url).then(response => this.props.recordsFetched(response.data))
+        Axios.get(this.props.url, { params: this.props.data }).then(response => this.props.recordsFetched(response.data))
+    }
+
+    componentWillUpdate(nextProps, state) {
+        Object.keys(nextProps.data).forEach((prop) => {
+            if (nextProps.data[prop] !== this.props.data[prop]) {
+                Axios.get(nextProps.url, { params: nextProps.data }).then(response => this.props.recordsFetched(response.data))
+            }
+        });
     }
 
     render() {

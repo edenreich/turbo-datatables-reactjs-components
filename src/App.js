@@ -46,7 +46,11 @@ class App extends Component {
   }
 
   onPerPageChanged(limit) {
-    this.requestData.limit = limit;
+    const requestData = {...this.state.requestData, limit: parseInt(limit, 10) };
+
+    this.setState({...this.state,
+      requestData
+    });
   }
 
   onSearch(term) {
@@ -92,7 +96,7 @@ class App extends Component {
           <DatatableWrapper>
             <DatatableHeader>
               <DatatablePerPage perPage={this.state.perPage} 
-                                perPageChanged={this.onPerPageChanged}>
+                                perPageChanged={this.onPerPageChanged.bind(this)}>
               </DatatablePerPage>
               <DatatableSearch searching={this.onSearch}></DatatableSearch>
             </DatatableHeader>
@@ -103,7 +107,7 @@ class App extends Component {
               <DatatableHead columns={this.state.columns}
                             columnClicked={this.onColumnClicked}>
               </DatatableHead>
-              <DatatableBody records={this.state.records}>
+              <DatatableBody records={this.state.records} requestData={this.state.requestData}>
                 <DatatableLoader loading={this.state.loading}></DatatableLoader>
               </DatatableBody>
               <DatatableFooter columns={this.state.columns}></DatatableFooter>
