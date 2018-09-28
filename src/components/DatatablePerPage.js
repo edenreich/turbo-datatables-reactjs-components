@@ -11,7 +11,7 @@ class DatatablePerPage extends Component {
 
     return (
       <td className="datatable-perpage text-left" width="50%">
-        <select name="perpage" id="perPage" onChange={(event) => this.props.perPageChanged(event.target.value)}>
+        <select name="perpage" id="perPage" onChange={event => this.props.perPageChanged(event.target.value)}>
           {perPageOptions}
         </select>
       </td>
