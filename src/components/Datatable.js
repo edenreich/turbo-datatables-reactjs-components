@@ -13,6 +13,7 @@ class Datatable extends Component {
     componentWillUpdate(nextProps, state) {
         Object.keys(nextProps.data).forEach((prop) => {
             if (nextProps.data[prop] !== this.props.data[prop]) {
+                this.props.gettingRecords();
                 Axios.get(nextProps.url, { params: nextProps.data }).then(response => this.props.recordsFetched(response.data))
             }
         });
