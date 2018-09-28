@@ -5,7 +5,7 @@ class DatatableLoader extends Component {
 
   render() {
 
-    return (
+    return this.props.loading ? (
       <tr className="datatable-loader">
         <td colSpan="100%" height="100px" style={{padding: '0', margin: '0'}}>
           <div className="overlay"></div>
@@ -18,7 +18,7 @@ class DatatableLoader extends Component {
           </div>
         </td>
       </tr>
-    );
+    ) : (null);
   }
 }
 

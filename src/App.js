@@ -17,9 +17,9 @@ class App extends Component {
     super(props);
 
     this.state = {
-      loading: true,
+      loading: false,
       records: [],
-      columns: [{ name: 'test'}, { name: 'test'}],
+      columns: [],
       perPage: [ '10', '20', '30' ],
       requestData: {
         page: 1,
@@ -59,14 +59,18 @@ class App extends Component {
   }
 
   onGettingRecords() {
-    this.loading = true;
+    this.setState({...this.state,
+      loading: true 
+    });
   }
   
   onRecordsFetched(response) {
-    this.columns = response.columns;
-    this.records = response.data;
-    this.pagination = response.pagination || {};
-    this.loading = false;
+    this.setState({...this.state,
+      loading: false,
+      columns: response.columns,
+      records: response.data,
+      pagination: response.pagination || {}
+    });
   }
 
   onPrev() {
@@ -92,15 +96,14 @@ class App extends Component {
               </DatatablePerPage>
               <DatatableSearch searching={this.onSearch}></DatatableSearch>
             </DatatableHeader>
-            <Datatable url="http://localhost:3000/users"
+            <Datatable url="http://localhost:4000/users"
                       data={this.state.requestData}
-                      gettingRecords={this.onGettingRecords}
-                      onRecordsFetched={this.onRecordsFetched}>
+                      gettingRecords={this.onGettingRecords.bind(this)}
+                      recordsFetched={this.onRecordsFetched.bind(this)}>
               <DatatableHead columns={this.state.columns}
                             columnClicked={this.onColumnClicked}>
               </DatatableHead>
-              <DatatableBody columns={this.state.columns}
-                            records={this.state.records}>
+              <DatatableBody records={this.state.records}>
                 <DatatableLoader loading={this.state.loading}></DatatableLoader>
               </DatatableBody>
               <DatatableFooter columns={this.state.columns}></DatatableFooter>
