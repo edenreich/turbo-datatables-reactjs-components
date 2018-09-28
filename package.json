@@ -16,6 +16,6 @@
     "demo-server": "datatables serve -p 4000"
   },
   "devDependencies": {
-    "turbo-datatables-cli": "^1.0.6"
+    "turbo-datatables-cli": "^1.0.7"
   }
 }
