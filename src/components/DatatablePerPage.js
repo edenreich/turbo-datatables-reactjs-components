@@ -3,12 +3,16 @@ import React, { Component } from "react";
 class DatatablePerPage extends Component {
 
   render() {
+    const perPageOptions = this.props.perPage.map((perPage, index) => {
+      return (
+        <option value={perPage} key={index}>{perPage}</option>
+      );
+    });
+
     return (
       <td className="datatable-perpage text-left" width="50%">
         <select name="perpage" id="perPage">
-          <option value="10">10</option>
-          <option value="20">20</option>
-          <option value="30">30</option>
+          {perPageOptions}
         </select>
       </td>
     );
