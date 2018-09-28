@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import './DatatableLoader.css';
+import '../styles/DatatableLoader.css';
 
 class DatatableLoader extends Component {
 
