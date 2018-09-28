@@ -9,7 +9,7 @@ import DatatableHead from './components/DatatableHead';
 import DatatableBody from './components/DatatableBody';
 import DatatableFooter from './components/DatatableFooter';
 import DatatablePagination from './components/DatatablePagination';
-import './App.css';
+
 
 class App extends Component {
 
