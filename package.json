@@ -13,9 +13,9 @@
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
-    "demo-server": "datatables serve"
+    "demo-server": "datatables serve -p 4000"
   },
   "devDependencies": {
-    "turbo-datatables-cli": "^1.0.5"
+    "turbo-datatables-cli": "^1.0.6"
   }
 }
